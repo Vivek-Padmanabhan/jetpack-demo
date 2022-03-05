@@ -1,4 +1,4 @@
-package com.example.demo.models
+package com.example.demo.view.data
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
