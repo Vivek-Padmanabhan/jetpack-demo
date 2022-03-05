@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.demo.R
 import com.example.demo.controllers.navigation.navigateForward
 import com.example.demo.databinding.FirstFragmentBinding
-import com.example.demo.views.data.Person
+import com.example.demo.views.data.PersonData
 
 class FirstFragment : Fragment(R.layout.first_fragment) {
 
@@ -18,7 +18,7 @@ class FirstFragment : Fragment(R.layout.first_fragment) {
         super.onViewCreated(view, savedInstanceState)
 
         val binding = FirstFragmentBinding.bind(view)
-        val viewModel = ViewModelProvider(this).get(Person::class.java)
+        val viewModel = ViewModelProvider(this).get(PersonData::class.java)
         binding.viewmodel = viewModel
         binding.lifecycleOwner = this
 
