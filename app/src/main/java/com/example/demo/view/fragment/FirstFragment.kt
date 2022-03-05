@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 
 import com.example.demo.R
-import com.example.demo.navigation.navigateForward
+import com.example.demo.view.navigation.navigateForward
 import com.example.demo.databinding.FirstFragmentBinding
 import com.example.demo.view.data.Person
 
