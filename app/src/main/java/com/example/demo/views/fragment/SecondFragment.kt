@@ -1,4 +1,4 @@
-package com.example.demo.view.fragment
+package com.example.demo.views.fragment
 
 import android.os.Bundle
 import android.view.View
@@ -7,7 +7,7 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 
 import com.example.demo.R
-import com.example.demo.view.navigation.navigateBackward
+import com.example.demo.controllers.navigation.navigateBackward
 
 class SecondFragment : Fragment(R.layout.second_fragment) {
 

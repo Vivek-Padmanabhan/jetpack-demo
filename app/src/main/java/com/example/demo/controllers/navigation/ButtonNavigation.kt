@@ -1,4 +1,4 @@
-package com.example.demo.view.navigation
+package com.example.demo.controllers.navigation
 
 import android.app.Activity
 

@@ -1,4 +1,4 @@
-package com.example.demo.view.fragment
+package com.example.demo.views.fragment
 
 import android.os.Bundle
 import android.view.View
@@ -8,9 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 
 import com.example.demo.R
-import com.example.demo.view.navigation.navigateForward
+import com.example.demo.controllers.navigation.navigateForward
 import com.example.demo.databinding.FirstFragmentBinding
-import com.example.demo.view.data.Person
+import com.example.demo.views.data.Person
 
 class FirstFragment : Fragment(R.layout.first_fragment) {
 

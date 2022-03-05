@@ -1,4 +1,4 @@
-package com.example.demo.view.activity
+package com.example.demo.views.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation.findNavController
