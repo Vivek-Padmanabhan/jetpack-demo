@@ -5,12 +5,15 @@ import android.view.View
 import android.widget.Button
 
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
+
+import kotlinx.coroutines.launch
 
 import com.example.demo.R
-import com.example.demo.controllers.navigation.navigateForward
-import com.example.demo.databinding.FirstFragmentBinding
 import com.example.demo.views.viewmodel.PersonViewModel
+import com.example.demo.databinding.FirstFragmentBinding
+import com.example.demo.controllers.navigateForward
 
 class FirstFragment : Fragment(R.layout.first_fragment) {
 
@@ -18,13 +21,14 @@ class FirstFragment : Fragment(R.layout.first_fragment) {
         super.onViewCreated(view, savedInstanceState)
 
         val binding = FirstFragmentBinding.bind(view)
-        val viewModel = ViewModelProvider(this).get(PersonViewModel::class.java)
+        val viewModel: PersonViewModel by activityViewModels()
         binding.viewmodel = viewModel
-        binding.lifecycleOwner = this
 
         val btnNext: Button = view.findViewById(R.id.button)
         btnNext.setOnClickListener {
-            navigateForward(requireActivity())
+            viewLifecycleOwner.lifecycleScope.launch {
+                navigateForward(coroutineContext, viewModel, requireActivity())
+            }
         }
     }
 }
