@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 import com.example.demo.R
 import com.example.demo.views.viewmodel.PersonViewModel
 import com.example.demo.databinding.FirstFragmentBinding
-import com.example.demo.controllers.navigateForward
+import com.example.demo.views.activity.MainActivity
 
 class FirstFragment : Fragment(R.layout.first_fragment) {
 
@@ -27,7 +27,7 @@ class FirstFragment : Fragment(R.layout.first_fragment) {
         val btnNext: Button = view.findViewById(R.id.button)
         btnNext.setOnClickListener {
             viewLifecycleOwner.lifecycleScope.launch {
-                navigateForward(coroutineContext, viewModel, requireActivity())
+                (activity as MainActivity).navigateForward(coroutineContext, viewModel)
             }
         }
     }

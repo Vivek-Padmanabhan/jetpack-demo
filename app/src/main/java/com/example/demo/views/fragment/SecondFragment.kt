@@ -8,8 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 
 import com.example.demo.R
-import com.example.demo.controllers.navigateBackward
 import com.example.demo.databinding.SecondFragmentBinding
+import com.example.demo.views.activity.MainActivity
 import com.example.demo.views.viewmodel.PersonViewModel
 
 class SecondFragment : Fragment(R.layout.second_fragment) {
@@ -23,7 +23,7 @@ class SecondFragment : Fragment(R.layout.second_fragment) {
 
         val btnNext: Button = view.findViewById(R.id.button2)
         btnNext.setOnClickListener {
-            navigateBackward(viewModel, requireActivity())
+            (activity as MainActivity).navigateBackward(viewModel)
         }
     }
 }
