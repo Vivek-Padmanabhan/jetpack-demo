@@ -1,7 +1,7 @@
-package com.example.demo.controllers.koin
+package com.example.demo.controllers.dependency
 
 import android.util.Log
-import com.example.demo.controllers.navigation.ButtonNavigation
+import com.example.demo.controllers.navigation.PersonNavigation
 
 import io.ktor.http.ContentType
 import io.ktor.http.HttpHeaders
@@ -69,5 +69,5 @@ val appModule = module {
     }
     single { PersonService(get()) }
     single { PersonRepository(get()) }
-    single { ButtonNavigation(get()) }
+    single { PersonNavigation(get()) }
 }

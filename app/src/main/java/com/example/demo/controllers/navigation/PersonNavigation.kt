@@ -13,7 +13,7 @@ import com.example.demo.models.data.entity.Person
 import com.example.demo.models.data.repository.PersonRepository
 import com.example.demo.views.viewmodel.PersonViewModel
 
-class ButtonNavigation(private val personRepository: PersonRepository) {
+class PersonNavigation(private val personRepository: PersonRepository) {
     suspend fun navigateForward(coroutineContext: CoroutineContext, viewModel: PersonViewModel, activity: Activity) {
         // Update Name
         val person: Person = withContext(coroutineContext) {

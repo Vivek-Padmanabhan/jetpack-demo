@@ -27,7 +27,7 @@ class FirstFragment : Fragment(R.layout.first_fragment) {
         val btnNext: Button = view.findViewById(R.id.button)
         btnNext.setOnClickListener {
             viewLifecycleOwner.lifecycleScope.launch {
-                (activity as MainActivity).navigateForward(coroutineContext, viewModel)
+                if (activity is MainActivity) (activity as MainActivity).navigateForward(coroutineContext, viewModel)
             }
         }
     }

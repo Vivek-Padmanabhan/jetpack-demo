@@ -1,4 +1,4 @@
-package com.example.demo.controllers.koin
+package com.example.demo.controllers.dependency
 
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin

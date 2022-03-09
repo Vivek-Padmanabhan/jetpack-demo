@@ -23,7 +23,7 @@ class SecondFragment : Fragment(R.layout.second_fragment) {
 
         val btnNext: Button = view.findViewById(R.id.button2)
         btnNext.setOnClickListener {
-            (activity as MainActivity).navigateBackward(viewModel)
+            if (activity is MainActivity) (activity as MainActivity).navigateBackward(viewModel)
         }
     }
 }
