@@ -3,17 +3,21 @@ package com.example.demo.views.activity
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation.findNavController
 
-import org.koin.android.ext.android.inject
+import javax.inject.Inject
+import dagger.hilt.android.AndroidEntryPoint
+
+import kotlinx.coroutines.withContext
+import kotlin.coroutines.CoroutineContext
 
 import com.example.demo.R
 import com.example.demo.controllers.navigation.PersonNavigation
 import com.example.demo.views.viewmodel.PersonViewModel
 
-import kotlinx.coroutines.withContext
-import kotlin.coroutines.CoroutineContext
-
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity(R.layout.main_activity) {
-    private val personNavigation: PersonNavigation by inject()
+
+    @Inject
+    lateinit var personNavigation: PersonNavigation
 
     suspend fun navigateForward(coroutineContext: CoroutineContext, viewModel: PersonViewModel) {
         withContext(coroutineContext) {

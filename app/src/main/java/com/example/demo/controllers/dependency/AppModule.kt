@@ -1,7 +1,12 @@
 package com.example.demo.controllers.dependency
 
 import android.util.Log
-import com.example.demo.controllers.navigation.PersonNavigation
+import javax.inject.Singleton
+
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 
 import io.ktor.http.ContentType
 import io.ktor.http.HttpHeaders
@@ -17,15 +22,14 @@ import io.ktor.client.features.logging.LogLevel
 import io.ktor.client.features.observer.ResponseObserver
 import io.ktor.client.engine.android.Android
 
-import org.koin.dsl.module
+@Module
+@InstallIn(SingletonComponent::class)
+object AppModule {
 
-import com.example.demo.models.data.repository.PersonRepository
-import com.example.demo.models.network.service.PersonService
-
-@JvmField
-val appModule = module {
-    single {
-        HttpClient(Android) {
+    @Provides
+    @Singleton
+    fun provideHttpClient(): HttpClient {
+        return HttpClient(Android) {
             // JSON
             install(JsonFeature) {
                 serializer = KotlinxSerializer(kotlinx.serialization.json.Json {
@@ -67,7 +71,4 @@ val appModule = module {
             }
         }
     }
-    single { PersonService(get()) }
-    single { PersonRepository(get()) }
-    single { PersonNavigation(get()) }
 }

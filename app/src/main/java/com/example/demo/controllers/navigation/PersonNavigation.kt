@@ -2,6 +2,8 @@ package com.example.demo.controllers.navigation
 
 import android.app.Activity
 
+import javax.inject.Inject
+
 import androidx.navigation.NavController
 import androidx.navigation.Navigation.findNavController
 
@@ -13,7 +15,8 @@ import com.example.demo.models.data.entity.Person
 import com.example.demo.models.data.repository.PersonRepository
 import com.example.demo.views.viewmodel.PersonViewModel
 
-class PersonNavigation(private val personRepository: PersonRepository) {
+class PersonNavigation @Inject constructor(private val personRepository: PersonRepository) {
+
     suspend fun navigateForward(coroutineContext: CoroutineContext, viewModel: PersonViewModel, activity: Activity) {
         // Update Name
         val person: Person = withContext(coroutineContext) {
